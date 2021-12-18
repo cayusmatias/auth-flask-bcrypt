@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+  <section class="hero is-info is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="/login" class="box" method="post">
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="notification is-{{ messages[0] }}">
+                        {{ messages[1] }}
+                    </div>
+                {% endif %}
+              {% endwith %}
+              <div class="field">
+                <label for="" class="label">Email</label>
+                <div class="control has-icons-left">
+                  <input type="email" name="username" placeholder="e.g. jhondoe@email.com" class="input" required>
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="label">Password</label>
+                <div class="control has-icons-left">
+                  <label>
+                    <input type="password" name="password" placeholder="*******" class="input" required>
+                  </label>
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <a href="/register" class="button is-ghost">
+                  <p>Registrar-se</p>
+                </a>
+              </div>
+              <div class="field">
+                <button class="button is-info">
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
