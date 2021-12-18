@@ -1,6 +1,6 @@
 import bcrypt
 import functools
-from flask import Blueprint, redirect, request, session, url_for, flash
+from flask import Blueprint, redirect, request, session, flash
 import sqlite3
 
 
@@ -22,7 +22,7 @@ auth = Blueprint("auth", __name__)
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if not 'user' in session.keys():
+        if 'user' not in session.keys():
             flash('warning')
             flash('Você precisa estar logado para acessar esse recurso.')
             return redirect("/")
@@ -90,4 +90,3 @@ def logout():
     flash('success')
     flash('Logout realizado com sucesso')
     return redirect('/')
-

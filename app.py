@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session
 from datetime import timedelta
 from auth import auth, login_required
 
@@ -21,7 +21,8 @@ def register_user():
 @app.route('/dashboard')
 @login_required
 def dashboard_user():
-    return render_template('dashboard.html')
+    username = session.get("user")
+    return render_template('dashboard.html', username=username)
 
 
 @app.errorhandler(404)
