@@ -10,19 +10,19 @@ app.register_blueprint(auth)
 
 @app.route('/')
 def landing_page():
-    return render_template('login.html')
+    return render_template('login.html', title="Login Sistema Flask")
 
 
 @app.route('/register')
 def register_user():
-    return render_template('register.html')
+    return render_template('register.html', title="Cadastrar Usuário")
 
 
 @app.route('/dashboard')
 @login_required
 def dashboard_user():
     username = session.get("user")
-    return render_template('dashboard.html', username=username)
+    return render_template('dashboard.html', username=username, title="Sistema Flask")
 
 
 @app.errorhandler(404)
