@@ -3,7 +3,7 @@ from datetime import timedelta
 from auth import auth, login_required
 
 app = Flask(__name__)
-app.secret_key = "JKHJHjkhJKGhjgFgjfhj&45645645648678744654564s64dsdsdhghkghjfd"
+app.secret_key = "Secret Key - Change in Production"
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=15)
 app.register_blueprint(auth)
 
