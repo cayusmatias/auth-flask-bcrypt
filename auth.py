@@ -36,8 +36,8 @@ def login():
 
     username = request.form['username']
     password = request.form['password'].encode('utf-8')
-    hashedpass = bcrypt.hashpw(password, bcrypt.gensalt(10))
-    print(hashedpass)
+    # hashedpass = bcrypt.hashpw(password, bcrypt.gensalt(10))
+    # print(hashedpass)
 
     cursor = conectabd().cursor()
     cursor.execute(f"SELECT * FROM users WHERE user = '{username}'")
